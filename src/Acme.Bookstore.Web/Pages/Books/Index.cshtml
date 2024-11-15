@@ -1,0 +1,19 @@
+﻿@page
+@using Acme.Bookstore.Localization
+@using Acme.Bookstore.Web.Pages.Books
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<BookstoreResource> L
+@model IndexModel
+@section scripts
+{
+    <abp-script src="/Pages/Books/Index.js" />
+}
+
+<abp-card>
+    <abp-card-header>
+        <h2>@L["Books"]</h2>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="BooksTable"></abp-table>
+    </abp-card-body>
+</abp-card>

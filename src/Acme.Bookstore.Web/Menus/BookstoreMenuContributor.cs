@@ -32,7 +32,12 @@ public class BookstoreMenuContributor : IMenuContributor
                 "~/",
                 icon: "fa fa-home",
                 order: 1
-            )
+            ).AddItem(
+                new ApplicationMenuItem(
+                    "Bookstore.Books",
+                    l["Menu:Books"],
+                    url: "/Books"
+                    ))
         );
 
 

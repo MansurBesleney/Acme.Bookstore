@@ -143,6 +143,13 @@ public class BookstoreWebModule : AbpModule
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
 
+        Configure<RazorPagesOptions>(options =>
+        {
+            options.Conventions.AuthorizePage("/Books/Index", BookstorePermissions.Books.Default);
+            options.Conventions.AuthorizePage("/Books/CreateModal", BookstorePermissions.Books.Create);
+            options.Conventions.AuthorizePage("/Books/EditModal", BookstorePermissions.Books.Edit);
+        });
+
         Configure<PermissionManagementOptions>(options =>
         {
             options.IsDynamicPermissionStoreEnabled = true;

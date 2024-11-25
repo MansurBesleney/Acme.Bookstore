@@ -13,7 +13,7 @@ namespace Acme.Bookstore.Authors
 {
     public class Author : FullAuditedAggregateRoot<Guid>
     {
-        private string Name { get; set; }
+        public string Name { get; private set; }
         public DateTime BirthDate { get; set; }
         public string ShortBio {  get; set; }
 
@@ -24,6 +24,7 @@ namespace Acme.Bookstore.Authors
             string name,
             DateTime birthDate,
             string shortBio)
+            : base(id)
         {
             SetName(name);
             BirthDate = birthDate;
